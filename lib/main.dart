@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    ContactProfilePage(),
+    const ContactProfilePage(),
   );
 }
 
 class ContactProfilePage extends StatelessWidget {
+  const ContactProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,7 +25,7 @@ class ContactProfilePage extends StatelessWidget {
               onPressed: () {
                 print('Contact is starred');
               },
-              icon: Icon(Icons.star_border),
+              icon: const Icon(Icons.star_border),
               color: Colors.black,
             ),
           ],
@@ -58,11 +60,130 @@ class ContactProfilePage extends StatelessWidget {
                 const Divider(
                   color: Colors.grey,
                 ),
+                Container(
+                  margin: const EdgeInsets.only(top: 8, bottom: 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      buildCallButton(),
+                      buildTextButton(),
+                      buildVideoCallButton(),
+                      buildEmailButton(),
+                      buildDirectionsButton(),
+                      buildPayButton(),
+                    ],
+                  ),
+                ),
+                const Divider(
+                  color: Colors.grey,
+                ),
               ],
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget buildCallButton() {
+    return Column(
+      children: <Widget>[
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.call,
+            color: Colors.indigo.shade800,
+          ),
+        ),
+        const Text(
+          'Call',
+        ),
+      ],
+    );
+  }
+
+  Widget buildTextButton() {
+    return Column(
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.message,
+            color: Colors.indigo.shade800,
+          ),
+        ),
+        const Text(
+          'Text',
+        ),
+      ],
+    );
+  }
+
+  Widget buildVideoCallButton() {
+    return Column(
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.video_call,
+            color: Colors.indigo.shade800,
+          ),
+        ),
+        const Text(
+          'Video',
+        ),
+      ],
+    );
+  }
+
+  Widget buildEmailButton() {
+    return Column(
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.email,
+            color: Colors.indigo.shade800,
+          ),
+        ),
+        const Text(
+          'Email',
+        ),
+      ],
+    );
+  }
+
+  Widget buildDirectionsButton() {
+    return Column(
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.directions,
+            color: Colors.indigo.shade800,
+          ),
+        ),
+        const Text(
+          'Directions',
+        ),
+      ],
+    );
+  }
+
+  Widget buildPayButton() {
+    return Column(
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.attach_money,
+            color: Colors.indigo.shade800,
+          ),
+        ),
+        const Text(
+          'Pay',
+        ),
+      ],
     );
   }
 }
