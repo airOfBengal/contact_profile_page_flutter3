@@ -7,29 +7,18 @@ void main() {
 }
 
 class ContactProfilePage extends StatelessWidget {
+  const ContactProfilePage({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.light,
-        appBarTheme: const AppBarTheme(
-          color: Colors.white,
-          iconTheme: IconThemeData(
-            color: Colors.black,
-          ),
-        ),
-        iconTheme: IconThemeData(
-          color: Colors.indigo.shade800,
-        ),
-      ),
+      theme: MyAppThemes.appThemeDark(),
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
           leading: const Icon(
             Icons.arrow_back,
-            color: Colors.black,
           ),
           actions: <Widget>[
             IconButton(
@@ -37,7 +26,6 @@ class ContactProfilePage extends StatelessWidget {
                 print('Contact is starred');
               },
               icon: const Icon(Icons.star_border),
-              color: Colors.black,
             ),
           ],
         ),
@@ -206,7 +194,6 @@ class ContactProfilePage extends StatelessWidget {
       subtitle: const Text("mobile"),
       trailing: IconButton(
         icon: const Icon(Icons.message),
-        color: Colors.indigo.shade500,
         onPressed: () {},
       ),
     );
@@ -219,7 +206,6 @@ class ContactProfilePage extends StatelessWidget {
       subtitle: const Text("other"),
       trailing: IconButton(
         icon: const Icon(Icons.message),
-        color: Colors.indigo.shade500,
         onPressed: () {},
       ),
     );
@@ -240,7 +226,6 @@ class ContactProfilePage extends StatelessWidget {
       subtitle: const Text("home"),
       trailing: IconButton(
         icon: const Icon(Icons.directions),
-        color: Colors.indigo.shade500,
         onPressed: () {},
       ),
     );
@@ -257,6 +242,40 @@ class ContactProfilePage extends StatelessWidget {
         buildDirectionsButton(),
         buildPayButton(),
       ],
+    );
+  }
+
+}
+
+
+class MyAppThemes {
+  static ThemeData appThemeLight (){
+    return ThemeData(
+      brightness: Brightness.light,
+      appBarTheme: const AppBarTheme(
+        color: Colors.white,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+      ),
+      iconTheme: IconThemeData(
+        color: Colors.indigo.shade800,
+      ),
+    );
+  }
+
+  static ThemeData appThemeDark(){
+    return ThemeData(
+      brightness: Brightness.dark,
+      appBarTheme: const AppBarTheme(
+        color: Colors.black,
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+      ),
+      iconTheme: const IconThemeData(
+        color: Colors.orange,
+      ),
     );
   }
 }
