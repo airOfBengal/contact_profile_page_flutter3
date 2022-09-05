@@ -77,6 +77,16 @@ class ContactProfilePage extends StatelessWidget {
                 const Divider(
                   color: Colors.grey,
                 ),
+                mobilePhoneListTile(),
+                otherPhoneListTile(),
+                const Divider(
+                  color: Colors.grey,
+                ),
+                emailListTile(),
+                const Divider(
+                  color: Colors.grey,
+                ),
+                addressListTile(),
               ],
             ),
           ],
@@ -184,6 +194,53 @@ class ContactProfilePage extends StatelessWidget {
           'Pay',
         ),
       ],
+    );
+  }
+
+  Widget mobilePhoneListTile() {
+    return ListTile(
+      leading: const Icon(Icons.call),
+      title: const Text("0123456789"),
+      subtitle: const Text("mobile"),
+      trailing: IconButton(
+        icon: const Icon(Icons.message),
+        color: Colors.indigo.shade500,
+        onPressed: () {},
+      ),
+    );
+  }
+
+  Widget otherPhoneListTile() {
+    return ListTile(
+      leading: const Text(""),
+      title: const Text("9876543210"),
+      subtitle: const Text("other"),
+      trailing: IconButton(
+        icon: const Icon(Icons.message),
+        color: Colors.indigo.shade500,
+        onPressed: () {},
+      ),
+    );
+  }
+
+  Widget emailListTile() {
+    return const ListTile(
+      leading: Icon(Icons.email),
+      title: Text("atiqul.islam@example.com"),
+      subtitle: Text("work"),
+    );
+  }
+
+  Widget addressListTile() {
+    return ListTile(
+      leading: const Icon(Icons.location_on),
+      title: const Text("Dhaka, Bangladesh"),
+      subtitle: const Text("home"),
+      trailing: IconButton(
+        icon: const Icon(Icons.directions),
+        color: Colors.indigo.shade500,
+        onPressed: () {},
+      ),
     );
   }
 }
