@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    const ContactProfilePage(),
+    ContactProfilePage(),
   );
 }
 
 class ContactProfilePage extends StatelessWidget {
-  const ContactProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -74,16 +73,13 @@ class ContactProfilePage extends StatelessWidget {
                 ),
                 Container(
                   margin: const EdgeInsets.only(top: 8, bottom: 8),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      buildCallButton(),
-                      buildTextButton(),
-                      buildVideoCallButton(),
-                      buildEmailButton(),
-                      buildDirectionsButton(),
-                      buildPayButton(),
-                    ],
+                  child: Theme(
+                    data: ThemeData(
+                      iconTheme: const IconThemeData(
+                        color: Colors.orange,
+                      ),
+                    ),
+                    child: profileActionItems(),
                   ),
                 ),
                 const Divider(
@@ -112,9 +108,8 @@ class ContactProfilePage extends StatelessWidget {
       children: <Widget>[
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.call,
-            color: Colors.indigo.shade800,
           ),
         ),
         const Text(
@@ -129,9 +124,8 @@ class ContactProfilePage extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.message,
-            color: Colors.indigo.shade800,
           ),
         ),
         const Text(
@@ -146,9 +140,8 @@ class ContactProfilePage extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.video_call,
-            color: Colors.indigo.shade800,
           ),
         ),
         const Text(
@@ -163,9 +156,8 @@ class ContactProfilePage extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.email,
-            color: Colors.indigo.shade800,
           ),
         ),
         const Text(
@@ -180,9 +172,8 @@ class ContactProfilePage extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.directions,
-            color: Colors.indigo.shade800,
           ),
         ),
         const Text(
@@ -197,9 +188,8 @@ class ContactProfilePage extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.attach_money,
-            color: Colors.indigo.shade800,
           ),
         ),
         const Text(
@@ -253,6 +243,20 @@ class ContactProfilePage extends StatelessWidget {
         color: Colors.indigo.shade500,
         onPressed: () {},
       ),
+    );
+  }
+
+  Widget profileActionItems() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        buildCallButton(),
+        buildTextButton(),
+        buildVideoCallButton(),
+        buildEmailButton(),
+        buildDirectionsButton(),
+        buildPayButton(),
+      ],
     );
   }
 }
